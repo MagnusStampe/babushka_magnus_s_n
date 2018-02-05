@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V2 Bistro Babushka</title>
+    <title>V3 Bistro Babushka</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
@@ -14,11 +14,12 @@
 
         <h1 data-mainHeader>Bistro Babushka</h1>
 
-        <div>
+        <div id="main_grid">
+            <!-- Navigation menu -->
             <nav>
-                <div class="dropdown">
-                    <div class="burger"></div>
-                    <div class="dropdown_content">
+                <details closed>
+                    <summary>Filtere</summary>
+                    <div>
                         <button id="alle">Alle</button>
                         <button id="forretter">Forretter</button>
                         <button id="hovedretter">Hovedretter</button>
@@ -26,28 +27,58 @@
                         <button id="drikkevarer">Drikkevarer</button>
                         <button id="sideorders">Sideorders</button>
                     </div>
-                </div>
+                </details>
 
+                <aside>
+                    <h2>Filtrer menuen</h2>
+                    <button id="alle2">Alle</button>
+                    <button id="forretter2">Forretter</button>
+                    <button id="hovedretter2">Hovedretter</button>
+                    <button id="desserter2">Desserter</button>
+                    <button id="drikkevarer2">Drikkevarer</button>
+                    <button id="sideorders2">Sideorders</button>
+                </aside>
             </nav>
-            <h2 id="dish_headline"></h2>
+            <div>
+                <h2 id="dish_headline"></h2>
 
-            <section id="dish_list" data-dishList>
-            </section>
+                <section id="dish_list" data-dishList>
+                </section>
+            </div>
+        </div>
+
+        <!-- Modal window, Popup window -->
+        <div id="popup">
+            <button class="back_close"></button>
+
+            <div id="popup_content">
+                <button class="close">Luk</button>
+                <h2 class="title" data-popupTitle></h2>
+                <img class="real_img" data-popupImage>
+                <p class="price" data-popupPrice></p>
+                <details closed>
+                    <summary>Beskrivelse af retten:</summary>
+                    <p class="descr" data-popupLongDescribtion></p>
+                </details>
+            </div>
         </div>
 
     </main>
 
+    <!-- Dish template -->
     <template class="temp" data-dishTemplate>
        <article class="dish" data-dish>
 
         <h2 class="title" data-dishTitle></h2>
-        <img class="img" data-dishImage>
+        <div class="img" data-dishImage></div>
+        <!--<img class="img" data-dishImage>-->
 
-        <p class="descr" data-dishDescribtion></p>
+        <p class="descr" data-dishShortDescribtion></p>
         <p class="price" data-dishPrice></p>
         </article>
     </template>
 
+    <!-- Footer -->
     <footer>
         <address>Adresse&#58; <div>Grønnegade 97<br>1107 København K</div></address>
         <aside>
@@ -82,6 +113,8 @@
             </div>
         </aside>
     </footer>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 

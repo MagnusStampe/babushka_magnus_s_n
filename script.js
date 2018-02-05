@@ -50,17 +50,69 @@ function show(menu, dishHeadline) {
         clone.querySelector("[data-dishTitle]").textContent = dish.navn;
 
         //Make photo
-        clone.querySelector("[data-dishImage]").src = "img/" + sizeLong + dish.billede + sizeShort + ".jpg";
-        clone.querySelector("[data-dishImage]").alt = dish.billede;
+        clone.querySelector("[data-dishImage]").style.backgroundImage = "url(img/" + sizeLong + dish.billede + sizeShort + ".jpg)";
+
+
+        //clone.querySelector("[data-dishImage]").src = "img/" + sizeLong + dish.billede + sizeShort + ".jpg";
+        //clone.querySelector("[data-dishImage]").alt = dish.billede;
 
         //Make description
-        clone.querySelector("[data-dishDescribtion]").textContent = dish.kortbeskrivelse;
+        clone.querySelector("[data-dishShortDescribtion]").textContent = dish.kortbeskrivelse;
 
         //Make pricetag
         clone.querySelector("[data-dishPrice]").textContent = dish.pris + " kr";
 
+        //Make ID
+        clone.querySelector("[data-dish]").setAttribute("data-id", dish.id);
+
+        //Make clickable
+        clone.querySelector("[data-dish]").addEventListener("click", openModal);
+
         //Insert the cloned elements
         dest.appendChild(clone);
+    });
+}
+
+function openModal() {
+
+    // Set myId to the ID of clicked element [data-dish]
+    let myId = this.getAttribute("data-id");
+
+    let single = menu.find(dish => {
+
+        //If cliked dish (myId) equals id of the dish
+        if (myId == dish.id) {
+
+            //Make modal visible
+            document.querySelector("#popup").style.visibility = "visible";
+
+            //Set popup title
+            document.querySelector("[data-popupTitle]").textContent = dish.navn;
+
+            //Set popup image
+            document.querySelector("[data-popupImage]").src = "img/" + sizeLong + dish.billede + sizeShort + ".jpg";
+            document.querySelector("[data-popupImage]").alt = dish.billede;
+
+            //Set popup price
+            document.querySelector("[data-popupPrice]").textContent = dish.pris + " kr";
+
+            //Set long describtion
+            document.querySelector("[data-popupLongDescribtion]").textContent = dish.langbeskrivelse;
+
+        }
+    })
+
+    //display id of clicked dish in console
+    console.log(myId);
+
+    //If .close is clicked, hide popup
+    document.querySelector(".close").addEventListener("click", () => {
+        document.querySelector("#popup").style.visibility = "hidden";
+    });
+
+    //If .back_close is clicked, hide popup
+    document.querySelector(".back_close").addEventListener("click", () => {
+        document.querySelector("#popup").style.visibility = "hidden";
     });
 }
 
@@ -76,24 +128,42 @@ function dishFilter() {
     document.querySelector("#alle").addEventListener("click", () => {
         show(menu, "Hele menuen");
     });
+    document.querySelector("#alle2").addEventListener("click", () => {
+        show(menu, "Hele menuen");
+    });
 
     document.querySelector("#forretter").addEventListener("click", () => {
+        show(forretter, "Forretter");
+    });
+    document.querySelector("#forretter2").addEventListener("click", () => {
         show(forretter, "Forretter");
     });
 
     document.querySelector("#hovedretter").addEventListener("click", () => {
         show(hovedretter, "Hovedretter");
     });
+    document.querySelector("#hovedretter2").addEventListener("click", () => {
+        show(hovedretter, "Hovedretter");
+    });
 
     document.querySelector("#desserter").addEventListener("click", () => {
+        show(desserter, "Desserter");
+    });
+    document.querySelector("#desserter2").addEventListener("click", () => {
         show(desserter, "Desserter");
     });
 
     document.querySelector("#drikkevarer").addEventListener("click", () => {
         show(drikkevarer, "Drikkevarer");
     });
+    document.querySelector("#drikkevarer2").addEventListener("click", () => {
+        show(drikkevarer, "Drikkevarer");
+    });
 
     document.querySelector("#sideorders").addEventListener("click", () => {
+        show(sideorders, "Sideorders");
+    });
+    document.querySelector("#sideorders2").addEventListener("click", () => {
         show(sideorders, "Sideorders");
     });
 }
