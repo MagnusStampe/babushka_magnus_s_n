@@ -1,0 +1,112 @@
+/* Generel */
+
+* {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+/* Navigation menu */
+
+.burger {
+    width: 10vw;
+    height: 10vw;
+    background-color: blue;
+}
+
+nav button {
+    height: 2em;
+    width: 10em;
+    font-weight: 700;
+    background-color: red;
+}
+
+.dropdown_content {
+    display: none;
+}
+
+.dropdown:hover .dropdown_content {
+    display: ;
+}
+
+/* Dishes */
+
+.cate {
+    color: #444;
+    font-weight: 700;
+    margin-bottom: 0;
+
+}
+
+#dish_list {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    margin: 0;
+}
+
+.dish {}
+
+.dish h2 {
+    height: 1.7em;
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+/* Footer */
+
+footer {
+    padding: 1em;
+}
+
+address {
+    display: grid;
+    grid-template-columns: 120px auto;
+}
+
+footer aside {
+    display: grid;
+    grid-template-columns: 120px auto;
+    margin-top: 1em;
+}
+
+footer aside div {
+    display: grid;
+    grid-template-columns: 90px 40px 40px 40px;
+}
+
+footer aside div p,
+footer aside p {
+    margin: 0.2em 0;
+}
+
+.dash {
+    width: 40px;
+    text-align: center;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 1080px) {}
+
+
+@media screen and (min-width: 800px) {
+    #dish_list {
+        margin: 40px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 450px) {
+    #dish_list {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 15px;
+    }
+}

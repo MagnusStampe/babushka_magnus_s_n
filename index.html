@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2 Bistro Babushka</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1 data-mainHeader>Bistro Babushka</h1>
+
+        <div>
+            <nav>
+                <div class="dropdown">
+                    <div class="burger"></div>
+                    <div class="dropdown_content">
+                        <button id="alle">Alle</button>
+                        <button id="forretter">Forretter</button>
+                        <button id="hovedretter">Hovedretter</button>
+                        <button id="desserter">Desserter</button>
+                        <button id="drikkevarer">Drikkevarer</button>
+                        <button id="sideorders">Sideorders</button>
+                    </div>
+                </div>
+
+            </nav>
+            <h2 id="dish_headline"></h2>
+
+            <section id="dish_list" data-dishList>
+            </section>
+        </div>
+
+    </main>
+
+    <template class="temp" data-dishTemplate>
+       <article class="dish" data-dish>
+
+        <h2 class="title" data-dishTitle></h2>
+        <img class="img" data-dishImage>
+
+        <p class="descr" data-dishDescribtion></p>
+        <p class="price" data-dishPrice></p>
+        </article>
+    </template>
+
+    <footer>
+        <address>Adresse&#58; <div>Grønnegade 97<br>1107 København K</div></address>
+        <aside>
+            <p>Åbningstider&#58;</p>
+            <div>
+                <p>Mandag:</p>
+                <p>10:30</p>
+                <p class="dash">&#45;</p>
+                <p>22:00</p>
+                <p>Tirsdag:</p>
+                <p>10:30</p>
+                <p class="dash">&#45;</p>
+                <p>22:00</p>
+                <p>Onsdag:</p>
+                <p>10:30</p>
+                <p class="dash">&#45;</p>
+                <p>22:00</p>
+                <p>Torsdag:</p>
+                <p>10:30</p>
+                <p class="dash">&#45;</p>
+                <p>22:00</p>
+                <p>Fredag:</p>
+                <p>10:30</p>
+                <p class="dash">&#45;</p>
+                <p>22:00</p>
+                <p>Lørdag:</p>
+                <p>12:00</p>
+                <p class="dash">&#45;</p>
+                <p>23:00</p>
+                <p>Søndag:</p>
+                <p>Lukket</p>
+            </div>
+        </aside>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
